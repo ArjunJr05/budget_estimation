@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Budget Estimator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 500px; margin: 0 auto; }
+        div { margin-bottom: 10px; }
+        label { display: block; }
+        input, select, textarea { width: 100%; padding: 8px; }
+        button { padding: 10px 15px; background-color: #4CD964; border: none; color: white; cursor: pointer; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f3f3f3; }
+    </style>
+</head>
+<body>
+    <h1>Task Budget Estimator</h1>
+    <form method="POST">
+        <div>
+            <label for="task_title">Task Title:</label>
+            <input type="text" name="task_title" id="task_title" required>
+        </div>
+        <div>
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Moving">Moving</option>
+                <option value="Assembly">Assembly</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Gardening">Gardening</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="5" required></textarea>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" name="location" id="location" required>
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" required>
+        </div>
+        <div>
+            <label for="time">Time:</label>
+            <input type="time" name="time" id="time" required>
+        </div>
+        <div>
+            <button type="submit">Get Estimate</button>
+        </div>
+    </form>
+    
+    {% if result %}
+    <div class="result">
+        <h2>Estimated Budget:</h2>
+        <pre>{{ result }}</pre>
+    </div>
+    {% endif %}
+</body>
+</html>
